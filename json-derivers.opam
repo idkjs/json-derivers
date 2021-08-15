@@ -7,12 +7,12 @@ dev-repo: "https://github.com/rgrinberg/json-derivers.git"
 license: "ISC"
 tags: ["deriving" "json"]
 build: [
-  ["jbuilder" "subst" "-n" name] {pinned}
-  ["jbuilder" "build" "-p" name "-j" jobs]
+  ["dune" "subst"] {pinned}
+  ["dune" "build" "-p" name "-j" jobs]
 ]
-build-test: [["jbuilder" "runtest" "-p" name "-j" jobs]]
+build-test: [["dune" "runtest" "-p" name "-j" jobs]]
 depends: [
-  "jbuilder" {build & >= "1.0+beta12"}
+  "dune" {build & >= "1.0"}
   "base"
 ]
 available: [ocaml-version >= "4.03.0"]
